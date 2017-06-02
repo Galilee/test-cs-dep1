@@ -16,7 +16,7 @@
     },
     "dependencies": {
       "java": [
-        "org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE",
+        "org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE"
       ],
       "npm": {
         "bootstrap": {
