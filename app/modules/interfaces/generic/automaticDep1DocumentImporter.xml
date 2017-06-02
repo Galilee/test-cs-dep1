@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://www.censhare.com/xml/3.0.0/command.xsd"
+     locale="__ALL">
+  <xml-info title="Galilee : Import and attach documents to SKU dep1"
+            description="XSLT import interface" knowledge-level="3" special-licence="true"
+            feature-help="" localize="true"
+            template-name="interfaces.xslt.import">
+    <property-resources>
+      <base url="file:module"/>
+      <base url="file:../../common/global"/>
+    </property-resources>
+    <history></history>
+  </xml-info>
+  <cmd-info name="galilee.hotfolder.xslt.documentImporterdep1" type="auto-execute" enabled="true" mode="loop" ignore-error="true"
+            log-level="FINE"/>
+  <admin-info dialog-id="config-xslt-import" dialog-url="file:config-dialog.xml"/>
+  <listen-events>
+    <!-- every 5 minutes -->
+    <timer delta-sec="10"/>
+  </listen-events>
+  <commands currentstep="0">
+    <command target="EventManager" method="waitevent" key="listen-events" enabled="= $$.cmd\-info@type==&apos;auto-execute&apos;"/>
+    <command target="ImportManager" method="scan" key="scan"/>
+    <command target="ImportManager" method="file-group-transaction" key="import-manager"/>
+    <if condition="=xmlExists($$.scan.filelist.file)">
+      <command target="ScriptletManager" method="callXSLT" key="transformation" scriptlet="modules.lib.XSLTServerActionScriptlet"/>
+    </if>
+  </commands>
+  <scan fork="false" fork-sync="false" fork-sync-timeout="600" scan-dir-filesystem="interfaces"
+        scan-dir-relpath="file:document-importer/in/" work-dir-filesystem="interfaces"
+        work-dir-relpath="file:document-importer/work/" create-unique-url="false" last-modification-delay-sec="5" max-queue-size="50"
+        check-event-workload="false" scan-subdirectories="true" include-directory-regex-pattern=".*">
+    <match include-file-regex-pattern=".*\.[0-9a-zA-Z]+" exclude-file-regex-pattern="^\._*|\..*|.*/\.rsrc$|.*/CVS$"/>
+  </scan>
+  <import-manager group-export-key="scan.filelist." completed-dir-filesystem="interfaces"
+                  completed-dir-relpath="file:document-importer/completed/" error-dir-filesystem="interfaces"
+                  error-dir-relpath="file:document-importer/error/" filename-format="{0,date,yyyyMMdd_HHmmss}-{1}"/>
+  <transformation
+    stylesheet-url="censhare:///service/assets/asset;censhare:resource-key=galilee:xslt.importAndAttach-document/storage/master/file"
+    source-key="scan.filelist"/>
+</cmd>

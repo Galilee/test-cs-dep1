@@ -1,0 +1,7 @@
+<masterdata>
+  <domains>
+    <domain pathid="root.dep1." parent="root." shortname="Dep1" name="Dep1" name_de="Dep1"
+            name_fr="Dep1" sorting="1" enabled="1"/>
+    <domain pathid="root." shortname="root" name="Root" name_de="Root" name_fr="Root" sorting="1" enabled="1"/>
+  </domains>
+</masterdata>

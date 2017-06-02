@@ -1,0 +1,4 @@
+batch login
+log FINE
+exec modules.interfaces.galilee.install-migration
+exit

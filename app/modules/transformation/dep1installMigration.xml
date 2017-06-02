@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<cmd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.censhare.com/xml/3.0.0/command.xsd">
+
+  <cmd-info
+    name="modules.interfaces.galilee.install-migration.dep1"
+    enabled="true">
+  </cmd-info>
+
+  <commands currentstep="0">
+    <command target="ScriptletManager" scriptlet="modules.interfaces.galilee.InstallMigration" method="display"/>
+  </commands>
+</cmd>

@@ -1,0 +1,26 @@
+{
+  "name": "galileeTest",
+  "since": "5.0.0",
+  "version": "0.0.1",
+  "styles": [
+    "style.less"
+  ],
+  "implementations": [
+    {
+      "type": "csWidget",
+      "name": "galileeTest",
+      "properties": {
+        "contentControllerName": "galileeTestController",
+        "contentTemplateName": "galileeTest.html",
+        "widgetInfo": {
+          "icon": "cs-icon-cogwheels",
+          "title": "galileeTest.widget.title",
+          "description": "galileeTest.widget.description"
+        }
+      }
+    }
+  ],
+  "translations": [
+    "translations"
+  ]
+}

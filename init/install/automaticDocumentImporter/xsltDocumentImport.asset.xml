@@ -1,0 +1,12 @@
+<asset application="texteditor" domain="root.dep1." domain2="root." has_master_file="1"
+       name="XSLT : Galilee - Import and Attach Documents dep1"
+       type="module.transformation." z_icon-set-key="assettype-module.action.server.">
+  <storage_item element_idx="0" key="master" mimetype="application/xslt+xml" relpath="file:xsltDocumentImport.xsl"/>
+  <asset_element idx="0" isversioned="1" key="actual." version="0"/>
+  <asset_feature feature="censhare:resource-enabled" isversioned="1" value_long="1"/>
+  <asset_feature feature="censhare:resource-in-cached-tables" isversioned="1" value_long="1"/>
+  <asset_feature feature="censhare:resource-key" isversioned="0"
+                 value_asset_key="galilee:xslt.importAndAttach-documentdep1"
+                 value_asset_key_feature="censhare:resource-key"
+                 value_string="galilee:xslt.importAndAttach-documentdep1"/>
+</asset>

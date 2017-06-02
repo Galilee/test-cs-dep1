@@ -1,0 +1,52 @@
+{
+  "name": "cs-galilee-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate example for censhare galilee projects",
+  "home": "/opt/corpus",
+  "pkg-type": "galilee-cs-pkg",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6"
+  },
+  "censhare": {
+    "variables": {
+      "hotFolderInterfaces": "./work/interfaces",
+      "app": "./censhare/censhare-Custom/censhare-Server/app",
+      "modules": "./censhare/censhare-Custom/censhare-Server/app/modules",
+      "interfaces": "./censhare/censhare-Custom/censhare-Server/app/modules/interfaces"
+    },
+    "dependencies": {
+      "java": [
+        "org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE",
+      ],
+      "npm": {
+        "bootstrap": {
+          "filename": "bootstrap.min"
+        }
+      }
+    },
+    "folders": {
+      "{{hotFolderInterfaces}}/test-dep1/": [
+        "in",
+        "error",
+        "completed",
+        "work"
+      ]
+    },
+    "symlinks": {
+      "pre-install": {
+        "raw": "./init",
+        "jar": "./censhare/censhare-Server/app/common/lib"
+      },
+      "install" : {
+        "web": "./censhare/censhare-Client5/web",
+        "scriptlet": {
+          "modules/transformation": "{{modules}}/transformation",
+          "modules/interfaces/galilee": "{{interfaces}}/galilee",
+          "modules/interfaces/generic": "{{interfaces}}/generic",
+          "config": "{{app}}/config",
+          "shelladmin": "{{app}}/shelladmin"
+        }
+      }
+    }
+  }
+}
